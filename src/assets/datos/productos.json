@@ -1,0 +1,85 @@
+[{
+        "producto": ["Melon", "Sandia", "Platano", "Uva", "Chile Serrano", "Chile guajillo", "Chile de arbol", "Jitomate", "Cebolla blanca", "Cebolla morada", "Tomate verde", "Cilantro", "Perejil", "Pepino", "Limon", "Lima", "Mandarina", "Naranja", "Pomelo", "Arandano", "Endrinas", "Frambuesa", "Fresa", "Freson", "Grosellas", "Moras", "Albaricoque", "Breva", "Cereza", "Higo", "Melocoton", "Nectarina", "Almendras", "Avellanas", "Cacahuates", "Nueces", "Albahaca"],
+        "Categoria": "Frutas y verduras"
+    },
+    {
+        "producto": ["Cafe", "Capsulas de cafe", "Crema para cafe", "Te Verde", "Te de frutas", "Te de hierbas y especias", "Tortillas de harina", "Tortillas de maiz", "Tostadas", "Cuernitos Tia Rosa", "Nito", "Mantecadas", "Donas", "Panque", "Barritas Marinela", "Gansito", "Pan integral", "Pan blanco", "Pan tostado", "Pan para hot dog", "Pan para hamburguesas", "Pan molido", "Totopos", "Sopes", "Tortillas tostadas", "Barras de avena", "Avena", "Granola", "Cereal de fibra y light", "Cereal dulce", "Galletas de avena y cereal", "Galletas saladas", "Galletas dulces", "Aceitunas", "Ates y chongos", "Atun en aceite", "Atun en agua", "Soya", "Carne enlatada", "Chiles jalapeños", "Chile Chipotle", "Rajas de jalapeños", "Duraznos en almibar", "Piña en almibar", "Coctel de frutas en almibar", "Mango en almibar", "Piña en almibar", "Mandarinas en almibar", "Cerezas en almibar", "Peras en almibar", "Guayaba en almibar", "Crema de elote enlatado", "Crema de champiñones enlatado", "Elote dorado enlatado", "Ensalada de verduras enlatado", "Champiñones enlatado", "Ajo Picado", "Pepinillos", "Garbanzo enlatado", "Leche Condensada", "Lechera", "Leche evaporada carnation", "Leche lala evaporada", "Leche Entera", "Leche Deslactosada", "Leche light", "Leche deslactosada light", "Media crema", "Leche en polvo"],
+        "Categoria": "Abarrotes"
+    },
+    {
+        "producto": ["Camaron", "Pescado", "Pulpo", "Cangrejo", "Almejas", "Calamar", "Pollo"],
+        "Categoria": "Carnes, pescados y mariscos"
+    },
+    {
+        "producto": ["Jamon", "Salchicha", "Chorizo"],
+        "Categoria": "Embutidos"
+    },
+    {
+        "producto": ["Bolillo", "Concha", "Pastel"],
+        "Categoria": "Panadería"
+    },
+    {
+        "producto": ["Crema", "Yogurt", "Mantequilla"],
+        "Categoria": "Lácteos"
+    },
+    {
+        "producto": ["Television", "Bocina", "Laptop"],
+        "Categoria": "Electrónica"
+    },
+    {
+        "producto": ["Crayola", "Lapiz", "Colores"],
+        "Categoria": "Papeleria"
+    },
+    {
+        "producto": ["Estufa", "Lavadora", "Plancha"],
+        "Categoria": "Electrodomésticos"
+    },
+    {
+        "producto": ["Sala", "Mesa", "Sillas"],
+        "Categoria": "Muebles"
+    },
+    {
+        "producto": ["Sabanas", "Almohadas", "Cortinas"],
+        "Categoria": "Blancos"
+    },
+    {
+        "producto": ["Sarten", "Olla", "Vaporera"],
+        "Categoria": "Hogar"
+    },
+    {
+        "producto": ["Pinza", "Martillo", "Clavos", "Taladro"],
+        "Categoria": "Ferretería"
+    },
+    {
+        "producto": ["Pasta dental", "Perfumes", "Rastrillo para afeitar", "Crema para la piel"],
+        "Categoria": "Higiene y belleza"
+    },
+    {
+        "producto": ["Alcohol", "Curitas", "Pastillas", "Jarabe"],
+        "Categoria": "Farmacia"
+    },
+    {
+        "producto": ["Podadora", "Macetero", "Plantas", "Liquido"],
+        "Categoria": "Jardinería"
+    },
+    {
+        "producto": ["Carros", "Avion", "Pelota", "Muñecos"],
+        "Categoria": "Juguetería"
+    },
+    {
+        "producto": ["Balon", "Caminadora", "Bicicleta", "Raquetas"],
+        "Categoria": "Deportes"
+    },
+    {
+        "producto": ["Zapato para hombre", "Zapato para mujer", "Vestido", "Pantalones de hombre"],
+        "Categoria": "Ropa y zapateria"
+    },
+    {
+        "producto": ["Pañales", "Biberon", "Leche en polvo", "Shampoo"],
+        "Categoria": "Articulos de bebé"
+    },
+    {
+        "producto": [""],
+        "Categoria": "Otros"
+    }
+]

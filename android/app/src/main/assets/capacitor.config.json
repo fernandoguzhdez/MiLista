@@ -1,0 +1,13 @@
+{
+    "appId": "com.fernandoguzman.milista",
+    "appName": "Mi Lista",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 4000
+        }
+    },
+    "cordova": {}
+}

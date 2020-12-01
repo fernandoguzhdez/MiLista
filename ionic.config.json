@@ -1,0 +1,8 @@
+{
+  "name": "ListaDeCompras",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

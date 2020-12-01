@@ -1,0 +1,20 @@
+#item-option-despensa {
+    width: 60px;
+}
+
+#checkbox,
+#headerActionListaCompras {
+    display: none;
+}
+
+ion-checkbox:checked+p {
+    color: white;
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}

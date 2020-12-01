@@ -1,0 +1,45 @@
+<ion-header id="headerListaCompras">
+    <ion-toolbar color="primary">
+        <ion-icon class="ion-padding" size="large" name="cart-outline" slot="start"></ion-icon>
+        <ion-title text-capitalize>Mi Despensa</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="abrirHeaderActionListaCompras()">
+                <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="headerActionListaCompras">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="white" (click)=salirHeaderActionListaCompras()>
+            <ion-back-button defaultHref="/tabs/tab4" text="Regresar"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button shape="round" (click)="eliminarListaCompras()">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <div *ngFor="let lista of dataLocal.despensa">
+            <ion-item-group *ngFor="let cate of lista.listaCreada; let i = index">
+                <ion-item-divider name="cate[0]" style="background-color: #E6E6E6; color: black; font-weight: bold; text-transform: uppercase;" id="divider">
+                    <ion-label>{{ cate[0]}}</ion-label>
+                </ion-item-divider>
+
+                <ion-item *ngFor="let item of cate[1]" (click)="prueba( $event )">
+                    <ion-checkbox color="warning" slot="end" [checked]=checkPrueba [(ngModel)]="item[3]"></ion-checkbox>
+                    <ion-label class="label">
+                        {{ item[0] }}
+                    </ion-label>
+                    <ion-badge color="dark">{{ item[1] }}{{ item[2] }}</ion-badge>
+                </ion-item>
+
+            </ion-item-group>
+        </div>
+    </ion-list>
+</ion-content>

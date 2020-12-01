@@ -1,0 +1,41 @@
+<ion-header id="headerProducto">
+    <ion-toolbar color="primary">
+        <ion-icon class="ion-padding" size="large" name="receipt-outline" slot="start"></ion-icon>
+        <ion-title text-capitalize>Productos</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)=abrirBuscador()>
+                <ion-icon slot="icon-only" name="search-sharp"></ion-icon>
+            </ion-button>
+            <ion-button>
+                <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="buscadorProducto">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="white" (click)=salirBuscador()>
+            <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
+        </ion-buttons>
+        <ion-searchbar color="tertiary" animated (ionChange)="buscarProducto($event)"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-list>
+
+        <ion-item-group *ngFor="let categoria of dataLocal.productos">
+            <ion-item-divider style="background-color: #E6E6E6; color: black; font-weight: bold; text-transform: uppercase;">
+                <ion-label>{{ categoria.Categoria}}</ion-label>
+            </ion-item-divider>
+
+            <ion-item *ngFor="let productos of categoria.producto | filtroIngredientes: textoBuscar">
+                <ion-label>{{ productos}}</ion-label>
+            </ion-item>
+
+        </ion-item-group>
+    </ion-list>
+
+</ion-content>

@@ -1,0 +1,122 @@
+<ion-header id="headerIngredientes">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="white">
+            <ion-back-button defaultHref="/" (click)="salirModalIngredientes()"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{tituloReceta}}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button shape="round" (click)=abrirBuscador()>
+                <ion-icon name="search"></ion-icon>
+            </ion-button>
+            <ion-buttons slot="end">
+                <ion-button (click)="actionIngrediente()">
+                    <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="headerBuscar">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="white" (click)=SalirHeaderActionIngredientes()>
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-searchbar color="tertiary" animated (ionChange)="buscarProducto($event)"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="header-action-ingredientes">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start" color="white" (click)=SalirHeaderActionIngredientes()>
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button shape="round" (click)="eliminarIngredientesSeleccionados()">
+                <ion-icon name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="Form-Agregar-Ingrediente">
+    <ion-item color="primary" lines="none" style="text-align: center;">
+        <ion-title>{{tituloReceta}}</ion-title>
+    </ion-item>
+    <ion-toolbar color="primary">
+        <ion-item color="primary">
+            <ion-input placeholder="Escribe el articulo" type="text" [(ngModel)]="ingrediente" (ionChange)="buscarProducto($event)" id="producto"></ion-input>
+        </ion-item>
+
+        <div *ngFor="let producto of dataLocal.productos" id="prueba">
+            <div lines="none" *ngFor="let prod of producto.producto | filtroProducto: textoBuscar" (click)="seleccionaProducto( producto, prod)">
+                <p id="catalogoProductos" name="texto">{{ prod }}</p>
+            </div>
+        </div>
+
+        <ion-item color="primary">
+            <ion-input placeholder="Categoria" type="text" id="categoria" [(ngModel)]="categoria" disabled></ion-input>
+        </ion-item>
+
+        <ion-item color="primary">
+            <ion-input placeholder="Cantidad" type="number" [(ngModel)]="cantidad"></ion-input>
+            <ion-select value="pz" id="unidad" interface="popover">
+                <ion-select-option value="pz">pz</ion-select-option>
+                <ion-select-option value="caja">caja</ion-select-option>
+                <ion-select-option value="paquete">paquete</ion-select-option>
+                <ion-select-option value="oz">oz</ion-select-option>
+                <ion-select-option value="lb">lb</ion-select-option>
+                <ion-select-option value="kg">kg</ion-select-option>
+                <ion-select-option value="grs">grs</ion-select-option>
+                <ion-select-option value="mts">mts</ion-select-option>
+                <ion-select-option value="cms">cms</ion-select-option>
+                <ion-select-option value="l">lt</ion-select-option>
+                <ion-select-option value="ml">ml</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-button expand="block" color="primary" (click)="RegistroItem()" id="btnAgregar">Agregar</ion-button>
+        <ion-button expand="block" color="primary" (click)="SalirHeaderActionIngredientes()" defaultHref="/">Salir</ion-button>
+        <ion-button expand="block" color="primary" (click)="actualizarIngrediente()" id="btnActualizar">Actualizar</ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-item id="checkTodo">
+            <ion-checkbox color="primary" slot="start" [(ngModel)]="checkTodo" (click)=seleccionarTodo()></ion-checkbox>
+            <ion-label>
+                <h1>Seleccionar Todo</h1>
+            </ion-label>
+        </ion-item>
+
+        <ion-item-sliding *ngFor="let ingrediente of dataLocal.ingredientes | filtroIngredientes: textoProducto; let i = index" #slidingIngrediente>
+
+            <ion-item id="ingrediente">
+                <ion-checkbox [checked]=checkIndividualIngredientes [(ngModel)]=ingrediente[4] color="primary" slot="start" id="checkIngredientes"></ion-checkbox>
+                <ion-label>
+                    <p>{{ingrediente[0]}}</p>
+                </ion-label>
+                <ion-badge color="light" slot="end">{{ingrediente[1]}} {{ingrediente[2]}}</ion-badge>
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option id="item-option-ingredientes" (click)="EliminarIngrediente( i )" color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-item-option>
+                <ion-item-option id="item-option-ingredientes" (click)="abrirFormIngrediente( ingrediente, slidingIngrediente )" color="tertiary">
+                    <ion-icon name="create"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+
+        </ion-item-sliding>
+
+    </ion-list>
+
+    <ion-fab horizontal="end" vertical="bottom">
+        <ion-fab-button color="medium" (click)="FormAgregar()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
