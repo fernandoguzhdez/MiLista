@@ -4,4 +4,5 @@
     <string name="title_activity_main">Mi Lista</string>
     <string name="package_name">com.fernandoguzman.milista</string>
     <string name="custom_url_scheme">com.fernandoguzman.milista</string>
+    <string name="admob_app_id">ca-app-pub-2253939026993123~2886092604</string>
 </resources>
