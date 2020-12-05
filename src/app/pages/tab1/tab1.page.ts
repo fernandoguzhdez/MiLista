@@ -31,7 +31,7 @@ export class Tab1Page {
    * Setting of Ads
    */
   private bannerTopOptions: AdOptions = {
-    adId: 'ca-app-pub-3940256099942544/2934735716',
+    adId: 'ca-app-pub-2253939026993123/3601166642',
     adSize: AdSize.SMART_BANNER,
     position: AdPosition.TOP_CENTER,
     // npa: false,
@@ -45,7 +45,7 @@ export class Tab1Page {
   };
 
   private rewardOptions: AdOptions = {
-    adId: 'ca-app-pub-3940256099942544/5224354917',
+    adId: 'ca-app-pub-2253939026993123/7298822784',
   };
 
   private interstitialOptions: AdOptions = {
@@ -100,6 +100,7 @@ export class Tab1Page {
     });
 
     AdMob.addListener('onInterstitialAdLoaded', (info) => {
+      this.prepareReward();
       this.isPrepareInterstitial = true;
       this.showInterstitial();
     });
@@ -169,6 +170,9 @@ export class Tab1Page {
               this.bandera = false;
               this.dataLocal.eliminarSeleccionados();
               this.SalirHeaderAction();
+              setTimeout(() => {
+                this.showReward();
+              }, 1000);
             }
           }
         ]
@@ -207,6 +211,9 @@ export class Tab1Page {
         this.dataLocal.crearDespensa();
         this.bandera = false;
         this.checkedLista = [];
+        setTimeout(() => {
+          this.showReward();
+        }, 1000);
       } else {
         const alert = await this.alertCtrl.create({
           cssClass: 'my-custom-class',
@@ -217,6 +224,9 @@ export class Tab1Page {
               text: 'Confirmar',
               handler: async () => {
                 this.SalirHeaderAction();
+                setTimeout(() => {
+                  this.showReward();
+                }, 1000);
               }
             }
           ]
@@ -248,6 +258,7 @@ export class Tab1Page {
   eliminarReceta( registro, i ) {
     const r = registro.lista;
     this.dataLocal.eliminarReceta( r, i );
+    this.showReward();
   }
 
   async editarLista(registro, i, slidingItem) {
@@ -307,6 +318,7 @@ export class Tab1Page {
     for (i = 0; i < x.length; i++) {
     x[i].style.display = 'block';
     }
+    this.prepareReward();
   }
 
   async abrirRegistro(registro) {
