@@ -6,9 +6,6 @@
             <ion-button (click)=abrirBuscador()>
                 <ion-icon slot="icon-only" name="search-sharp"></ion-icon>
             </ion-button>
-            <ion-button>
-                <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -19,6 +16,26 @@
             <ion-back-button defaultHref="/tabs/tab3"></ion-back-button>
         </ion-buttons>
         <ion-searchbar color="tertiary" animated (ionChange)="buscarProducto($event)"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-header id="Form-Alta-Articulo" style="display: none;">
+    <ion-item color="primary" lines="none" style="text-align: center;">
+        <ion-title>Registrar Articulo</ion-title>
+    </ion-item>
+    <ion-toolbar color="primary">
+        <ion-item color="primary">
+            <ion-input placeholder="Escribe el articulo" type="text" [(ngModel)]="articulo" id="inputArticulo"></ion-input>
+        </ion-item>
+
+        <ion-item color="primary">
+            <ion-select placeholder="Selecciona una categoria" [(ngModel)]="categoriaSeleccionada">
+                <ion-select-option *ngFor="let categoria of dataLocal.productos">{{categoria.Categoria}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-button expand="block" color="primary" (click)="registroArticulo()" id="btnAgregar">Registrar</ion-button>
+        <ion-button expand="block" color="primary" (click)="SalirFormAltaArticulo()" defaultHref="/">Salir</ion-button>
     </ion-toolbar>
 </ion-header>
 

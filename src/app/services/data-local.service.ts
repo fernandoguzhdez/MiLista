@@ -13,6 +13,7 @@ import { Componente } from '../interfaces/interfaces';
 export class DataLocalService {
 
   productos: any = [];
+  productoNuevo: any = [];
   listas: Registro[] = [];
   lista2: any = [];
   despensa: Despensa[] = [];
@@ -32,6 +33,7 @@ export class DataLocalService {
   catalogo4: any = [];
   catalogo5: any = [];
   desp: any = [];
+  listaExistente: any;
 
   constructor( private storage: Storage,
                public toastCtrl: ToastController,
@@ -225,11 +227,34 @@ export class DataLocalService {
     return this.despensa;
   }
 
-  guardarLista( lista: string, created: Date) {
-    const  nuevaLista = new Registro( lista );
-    this.listas.unshift( nuevaLista );
-    console.log( this.listas );
-    this.storage.set('registros', this.listas);
+  async guardarLista( lista: string, created: Date) {
+    for ( const list of this.listas ) {
+      if ( list.lista === lista ) {
+        this.listaExistente = list.lista;
+      }
+    }
+
+    if ( this.listaExistente === lista ) {
+      const alert = await this.alertCtrl.create({
+        cssClass: 'my-custom-class',
+        header: 'Alerta',
+        subHeader: lista,
+        message: 'ya existe',
+        buttons: ['OK']
+      });
+      await alert.present();
+    } else {
+        const  nuevaLista = new Registro( lista );
+        this.listas.unshift( nuevaLista );
+        console.log( this.listas );
+        this.storage.set('registros', this.listas);
+
+        const toast = await this.toastCtrl.create({
+          message: lista + ' ' + 'se registro con exito.',
+          duration: 2000
+        });
+        toast.present();
+      }
   }
 
   async eliminarReceta( r: any, i ) {
@@ -318,6 +343,25 @@ export class DataLocalService {
         toast2.present();
       }
     }
+  }
+
+  AltaArticulo( articulo, categoriaSeleccionada ) {
+    console.log(categoriaSeleccionada);
+    for ( const catalogo of this.productos ) {
+      if ( catalogo.Categoria === categoriaSeleccionada ) {
+        this.http.get<Componente[]>('/assets/datos/productos.json')
+         .subscribe(resp => {
+           resp.push(this.productoNuevo || []);
+         });
+        for ( const producto of catalogo.producto ) {
+          if ( articulo === producto ) {
+            console.log('ya existe');
+          } else {
+          }
+        }
+      }
+    }
+    console.log(this.productos);
   }
 
   getProductos() {

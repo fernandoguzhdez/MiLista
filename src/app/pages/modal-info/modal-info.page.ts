@@ -31,8 +31,6 @@ export class ModalInfoPage implements OnInit {
     if (this.lista !== undefined) {
       this.dataLocal.guardarLista( lista, created);
       this.modalCtrl.dismiss();
-      console.log(lista);
-      this.presentToast();
     } else {
       console.log('Agregue un valor al campo');
       this.presentAlert();
@@ -47,7 +45,6 @@ export class ModalInfoPage implements OnInit {
       message: 'No puede dejar el campo vacio',
       buttons: ['OK']
     });
-    await alert.present();
   }
 
   async presentToast() {
